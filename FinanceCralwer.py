@@ -158,8 +158,8 @@ def addHldData(userID,hldStk,flagUpdate,tpArea='TW'):
     mongoID=os.getenv('MONGOID')
     mongoPwd=os.getenv('MONGOPWD')
     myClient =  MongoClient("mongodb+srv://{0}:{1}@cluster0.mlmdi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority".format(mongoID,mongoPwd))
-    myDB = myClient["jojodb"]
-    ##myDB.authenticate(mongoID,mongoPwd)
+    myDB=myClient["jojodb"]
+    myDB.authenticate(mongoID,mongoPwd)
     myCollection=myDB["hldData"]
     qryString={"userID":userID,"tpArea":tpArea}
     cursor = myCollection.find_one(qryString)
@@ -189,7 +189,7 @@ def getHldData(userID,tpArea='TW'):
     mongoPwd=os.getenv('MONGOPWD')
     myClient =  MongoClient("mongodb+srv://{0}:{1}@cluster0.mlmdi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority".format(mongoID,mongoPwd))
     myDB=myClient["jojodb"]
-    ##myDB.authenticate(mongoID,mongoPwd)
+    myDB.authenticate(mongoID,mongoPwd)
     myCollection=myDB["hldData"]
     qryString={"userID":userID,"tpArea":tpArea}
     cursor = myCollection.find_one(qryString)
