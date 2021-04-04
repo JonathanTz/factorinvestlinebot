@@ -157,7 +157,7 @@ def addHldData(userID,hldStk,flagUpdate,tpArea='TW'):
     hldStk=hldStk['stkID'].tolist()
     mongoID=os.getenv('MONGOID')
     mongoPwd=os.getenv('MONGOPWD')
-    myClient =  MongoClient("mongodb://{0}:{1}@cluster0-shard-00-00.mlmdi.mongodb.net:27017,cluster0-shard-00-01.mlmdi.mongodb.net:27017,cluster0-shard-00-02.mlmdi.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-t3nywg-shard-0&authSource=admin&retryWrites=true&w=majority".format(mongoID,mongoPwd))
+    myClient =  MongoClient("mongodb+srv://{0}:{1}@cluster0.mlmdi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority".format(mongoID,mongoPwd))
     myDB=myClient["jojodb"]
     myDB.authenticate(mongoID,mongoPwd)
     myCollection=myDB["hldData"]
@@ -187,7 +187,7 @@ def addHldData(userID,hldStk,flagUpdate,tpArea='TW'):
 def getHldData(userID,tpArea='TW'):
     mongoID=os.getenv('MONGOID')
     mongoPwd=os.getenv('MONGOPWD')
-    myClient =  MongoClient("mongodb://{0}:{1}@cluster0-shard-00-00.mlmdi.mongodb.net:27017,cluster0-shard-00-01.mlmdi.mongodb.net:27017,cluster0-shard-00-02.mlmdi.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-t3nywg-shard-0&authSource=admin&retryWrites=true&w=majority".format(mongoID,mongoPwd))
+    myClient =  MongoClient("mongodb+srv://{0}:{1}@cluster0.mlmdi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority".format(mongoID,mongoPwd))
     myDB=myClient["jojodb"]
     myDB.authenticate(mongoID,mongoPwd)
     myCollection=myDB["hldData"]
