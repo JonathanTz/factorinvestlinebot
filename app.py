@@ -10,7 +10,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import FinanceCralwer as Fin
 import os
-import sys
 app = Flask(__name__)
 
 # 填入你的 message api 資訊
@@ -116,13 +115,10 @@ def handle_message(event):
         stkID=event.message.text.split()
         stkArray=Fin.covtStr2ID(stkID,'CMoney')
         stkArray_TW=Fin.covtStr2ID(stkID,'CMoney') ##更新台股觀察
-        print(stkID)
-        sys.stdout.flush()
         if len(stkArray_TW)!=0:
             stkArray=stkArray_TW
-        elif (stkID[0]!='F' & stkID[0]!='S') :
-            stkArray=Fin.covtStr2ID(stkID,'alphavantage')##更新海外股觀察  
-       
+        else:
+            stkArray=Fin.covtStr2ID(stkID,'alphavantage')##更新海外股觀察            
         
     
     if (stkID[0]=='F'):
