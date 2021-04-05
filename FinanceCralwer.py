@@ -118,8 +118,8 @@ def covtStr2ID(stkStr,dataSrc):
 def getFxPrc(tpFx,n=365):
     dtNowEd=datetime.now().timestamp()
     dtNowSt=(datetime.now()-timedelta(days = n)).timestamp() 
-    url='https://ws.api.cnyes.com/api/v1/charting/history?symbol=FX:{0}:FOREX&resolution=D&from={1}&to={2}'.format(tpFx,str(int(dtNowEd)),str(int(dtNowSt)))
-    res = requests.get(url).json()
+    url='https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=FX:{0}:FOREX&resolution=D&from={1}&to={2}'.format(tpFx,str(int(dtNowEd)),str(int(dtNowSt)))
+    res = requests.get(url).json()['data']
     listOfDate  = res["t"]
     listOfOpen  = res["o"]
     listOfHigh  = res["h"]
