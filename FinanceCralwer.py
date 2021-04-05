@@ -198,6 +198,11 @@ def getHldData(userID,tpArea='TW'):
         hldStk_origin=cursor.get("hldStk")
     return hldStk_origin
 getStkReturn(covtStr2ID(['1234','2330','9999'],'CMoney'))
+mongoID=os.getenv('MONGOID')
+mongoPwd=os.getenv('MONGOPWD')
+myClient =  MongoClient("mongodb+srv://{0}:{1}@cluster0.mlmdi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority".format(mongoID,mongoPwd))
+myDB=myClient["jojodb"]
+myDB.authenticate(mongoID,mongoPwd)
     ##myCollection.insert_one({"userID":userID,"hldStk":hldStk})
     ##myCollection.delete_one({"userID":"aasd","hldStk":['2330']})
 ##getStkReturn(['1234','3552'])

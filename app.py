@@ -78,6 +78,11 @@ def handle_message(event):
                                     label = '海外股觀察清單資訊',  # 在按鈕模板上顯示的名稱
                                     #display_text = '查詢中,請稍後...',  # 點擊會顯示的文字
                                     data = 'jojoStock_GB'  # 這個...我真的就不知道了～
+                                ),
+                                PostbackAction(
+                                    label = '外匯觀察清單',  # 在按鈕模板上顯示的名稱
+                                    #display_text = '查詢中,請稍後...',  # 點擊會顯示的文字
+                                    data = 'jojoStock_GB'  # 這個...我真的就不知道了～
                                 )]
                         )
                     ]
