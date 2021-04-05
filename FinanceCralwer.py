@@ -103,7 +103,7 @@ def covtStr2ID(stkStr,dataSrc):
             output=pd.concat([output,stkArray[(stkArray["stkID"]==stk) | (stkArray["stkName"]==stk) ]],axis=0)
         return output
     elif (dataSrc=='cnyes'):
-        url = "https://ws.api.cnyes.com/universal/api/v1/quote?type=ALLFX&page=0&limit=30&column=C_FORMAT"
+        url = "https://ws.api.cnyes.com/ws/api/v2/universal/quote?type=TRMAIN&page=0&limit=30&column=D_FORMAT"
         res = requests.get(url).json()
         fxArray=json_normalize(res["data"]["items"])[['0','200009']]
         fxArray.columns=['fxID','fxName']
