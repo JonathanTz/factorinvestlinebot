@@ -115,6 +115,7 @@ def handle_message(event):
         stkID=event.message.text.split()
         stkArray=Fin.covtStr2ID(stkID,'CMoney')
         stkArray_TW=Fin.covtStr2ID(stkID,'CMoney') ##更新台股觀察
+        print(stkID)
         if len(stkArray_TW)!=0:
             stkArray=stkArray_TW
         elif (stkID[0]!='F' & stkID[0]!='S') :
