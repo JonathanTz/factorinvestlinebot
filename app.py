@@ -117,8 +117,9 @@ def handle_message(event):
         stkArray_TW=Fin.covtStr2ID(stkID,'CMoney') ##更新台股觀察
         if len(stkArray_TW)!=0:
             stkArray=stkArray_TW
-        else:
-            stkArray=Fin.covtStr2ID(stkID,'alphavantage')##更新海外股觀察            
+        elif (len(stkArray_TW)==0 & stkID[0]!='F' & stkID[0]!='S') :
+            stkArray=Fin.covtStr2ID(stkID,'alphavantage')##更新海外股觀察  
+       
         
     
     if (stkID[0]=='F'):
