@@ -10,6 +10,7 @@ from linebot.exceptions import (
 from linebot.models import *
 import FinanceCralwer as Fin
 import os
+import sys
 app = Flask(__name__)
 
 # 填入你的 message api 資訊
