@@ -26,7 +26,7 @@ def getCMStkPrcPer(stkID,dtCnt=250):
     res = requests.get(url,headers=header).json()
     
     if(len(res)>0):
-        pxArray=json_normalize(res)
+        pxArray=pd.json_normalize(res)
         pxArray=pxArray[[u'Date',u'OpenPr',u'HighPr',u'LowPr',u'ClosePr',u'DealQty']]
         pxArray[u'stkID']=stkID
         
@@ -82,7 +82,7 @@ def covtStr2ID(stkStr,dataSrc):
         header = {'Referer':'http://www.cmoney.tw/finance/f00025.aspx',
                 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'}
         res = requests.get(url,headers=header).json()
-        stkArray=json_normalize(res)
+        stkArray=pd.json_normalize(res)
         stkArray.columns=['stkID','stkName']
         stkArray['tpArea']='TW'
         output=pd.DataFrame(columns=['stkID', 'stkName'])
